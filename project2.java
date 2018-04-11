@@ -42,6 +42,7 @@ public class Project2 extends JFrame {
 
         SortInfix si = new SortInfix(infix);
         si.checkInvalidTokens();
+        si.createInfix();
       }
     });
 

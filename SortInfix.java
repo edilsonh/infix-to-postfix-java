@@ -18,10 +18,24 @@ public class SortInfix {
     }
   }
 
+  public boolean operatorsExist() {
+    int totalOperators = 0;
+    for (String m : infixAL) {
+      if (isOperator(m)) {
+        totalOperators++;
+      }
+    }
+    if (totalOperators > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public boolean isInteger(String k) {
     try {
-        Integer.parseInt(k);
-        return true;
+      Integer.parseInt(k);
+      return true;
     } catch (Exception e) {
       return false;
     }
@@ -40,4 +54,21 @@ public class SortInfix {
       return false;
     }
   }
+
+  public void createInfix() {
+    while (operatorsExist()) {
+      for (String opt : infixAL) {
+        if (isOperator(opt)) {
+          int ind = infixAL.indexOf(opt);
+          System.out.println(ind);
+          System.out.print(infixAL.get(ind-1));
+          System.out.print(infixAL.get(ind));
+          System.out.print(infixAL.get(ind-2));
+          infixAL.remove(ind);
+          break;
+        }
+      }
+    }
+  }
+
 }
