@@ -7,7 +7,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 
 public class Project2 extends JFrame {
   public Project2() {
@@ -40,12 +39,8 @@ public class Project2 extends JFrame {
     eval.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         String[] infix = expressionField.getText().split("");
-        ArrayList<String> infixAL = new ArrayList<>();
-        for (String s : infix) {
-          System.out.println(s);
-          infixAL.add(s);
-        }
-        System.out.println(infixAL);
+
+        SortInfix si = new SortInfix(infix);
       }
     });
 
