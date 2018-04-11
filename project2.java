@@ -1,5 +1,5 @@
 /*
-* File: Project1.java
+* File: Project2.java
 * Author: Edilson Hernandez
 * Date: April 6, 2018
 */
@@ -35,6 +35,15 @@ public class Project2 extends JFrame {
     infixPanel.add(infixLabel);
     infixPanel.add(infixResult);
     add(infixPanel);
+
+    eval.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        String[] infix = expressionField.getText().split("");
+        for (String s : infix) {
+          System.out.println(s);
+        }
+      }
+    });
 
     pack();
     setVisible(true);
