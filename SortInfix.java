@@ -60,15 +60,19 @@ public class SortInfix {
       for (String opt : infixAL) {
         if (isOperator(opt)) {
           int ind = infixAL.indexOf(opt);
-          System.out.println(ind);
-          System.out.print(infixAL.get(ind-1));
-          System.out.print(infixAL.get(ind));
-          System.out.print(infixAL.get(ind-2));
+
+          Tree t = new Operator(infixAL.get(ind), infixAL.get(ind-2), infixAL.get(ind-1));
+
           infixAL.remove(ind);
+          infixAL.remove(ind-1);
+
+          infixAL.set(ind-2, t.toInfix());
+
           break;
         }
       }
     }
+    System.out.println(infixAL.get(0));
   }
 
 }

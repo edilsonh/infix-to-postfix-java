@@ -6,6 +6,6 @@ class Operand extends Tree {
   }
 
   public String toInfix() {
-    return this.n;
+    return n;
   }
 }
