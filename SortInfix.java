@@ -86,7 +86,7 @@ public class SortInfix {
         }
       }
     }
-    System.out.println(fc.giveResult());
+    fc.createFile();
     return infixAL.get(0);
   }
 }

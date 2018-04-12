@@ -1,4 +1,6 @@
 import java.util.*;
+import java.io.File;
+import java.io.FileWriter;
 
 public class FileCreator {
   private String f;
@@ -55,5 +57,25 @@ public class FileCreator {
 
   public String giveResult() {
     return f;
+  }
+
+  public void createFile() {
+    try {
+      File file = new File("./threeAddressInstructions.txt");
+      boolean fi = file.createNewFile();
+
+      if (fi) {
+        System.out.println("File created successfully!");
+      } else {
+        System.out.println("File already exists!");
+      }
+
+      FileWriter writer = new FileWriter("./threeAddressInstructions.txt", true);
+
+      writer.write(f + "\n");
+      writer.close();
+    } catch (Exception e) {
+      System.out.println(e);
+    }
   }
 }
