@@ -67,10 +67,12 @@ public class SortInfix {
   }
 
   public String createInfix() {
+    FileCreator fc = new FileCreator();
     while (operatorsExist()) {
       for (String opt : infixAL) {
         if (isOperator(opt)) {
           int ind = infixAL.indexOf(opt);
+          fc.addContent(infixAL.get(ind), infixAL.get(ind-2), infixAL.get(ind-1));
 
           Tree t = new Operator(infixAL.get(ind),  new Operand(infixAL.get(ind-2)), new Operand(infixAL.get(ind-1)));
 
@@ -78,12 +80,13 @@ public class SortInfix {
           infixAL.remove(ind-1);
 
           infixAL.set(ind-2, t.toInfix());
+          fc.addResult(t.toInfix());
 
           break;
         }
       }
     }
+    System.out.println(fc.giveResult());
     return infixAL.get(0);
   }
-
 }
