@@ -3,14 +3,14 @@ import java.util.*;
 public class FileCreator {
   private String f;
   private int counter = 0;
-  private ArrayList<String> rr = new ArrayList<>();
+  private ArrayList<String> allResults = new ArrayList<>();
 
   public FileCreator(){
     f = "";
   }
 
   public void addResult(String rslt) {
-    rr.add(rslt);
+    allResults.add(rslt);
   }
 
   public void addContent(String opt, String k1, String k2) {
@@ -34,17 +34,17 @@ public class FileCreator {
 
     f += "R" + Integer.toString(counter) + " ";
 
-    if (rr.indexOf(k1) == -1) {
+    if (allResults.indexOf(k1) == -1) {
       f += k1 + " ";
     } else {
-      int r = rr.indexOf(k1);
+      int r = allResults.indexOf(k1);
       f += "R" + r + " ";
     }
 
-    if (rr.indexOf(k2) == -1) {
+    if (allResults.indexOf(k2) == -1) {
       f += k2;
     } else {
-      int r = rr.indexOf(k2);
+      int r = allResults.indexOf(k2);
       f += "R" + r;
     }
 
