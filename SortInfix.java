@@ -55,7 +55,7 @@ public class SortInfix {
     }
   }
 
-  public void createInfix() {
+  public String createInfix() {
     while (operatorsExist()) {
       for (String opt : infixAL) {
         if (isOperator(opt)) {
@@ -73,6 +73,7 @@ public class SortInfix {
       }
     }
     System.out.println(infixAL.get(0));
+    return infixAL.get(0);
   }
 
 }
