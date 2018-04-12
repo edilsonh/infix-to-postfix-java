@@ -61,7 +61,7 @@ public class SortInfix {
         if (isOperator(opt)) {
           int ind = infixAL.indexOf(opt);
 
-          Tree t = new Operator(infixAL.get(ind), infixAL.get(ind-2), infixAL.get(ind-1));
+          Tree t = new Operator(infixAL.get(ind),  new Operand(infixAL.get(ind-2)), new Operand(infixAL.get(ind-1)));
 
           infixAL.remove(ind);
           infixAL.remove(ind-1);
