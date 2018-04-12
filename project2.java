@@ -41,9 +41,10 @@ public class Project2 extends JFrame {
         String[] infix = expressionField.getText().split("");
 
         SortInfix si = new SortInfix(infix);
-        si.checkInvalidTokens();
 
-        infixResult.setText(si.createInfix());
+        if (si.checkInvalidTokens()) {
+          infixResult.setText(si.createInfix());
+        }
       }
     });
 

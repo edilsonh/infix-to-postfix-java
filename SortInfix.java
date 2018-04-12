@@ -1,4 +1,5 @@
 import java.util.*;
+import javax.swing.*;
 
 public class SortInfix {
   private ArrayList<String> infixAL = new ArrayList<>();
@@ -7,14 +8,24 @@ public class SortInfix {
     for (String s : a) {
       infixAL.add(s);
     }
-    System.out.println(infixAL);
   }
 
-  public void checkInvalidTokens() {
-    for (String r : infixAL) {
-      if (!isInteger(r) && !isOperator(r)) {
-        System.out.println("Invalid token: " + r);
+  public boolean checkInvalidTokens() {
+    String it = "";
+    try {
+      for (String r : infixAL) {
+        it = r;
+        if (!isInteger(r) && !isOperator(r)) {
+          System.out.println("Invalid token: " + r);
+          throw new RuntimeException("Invalid token: " + r);
+        }
       }
+      return true;
+    } catch (Exception e) {
+      System.out.println(e);
+      JFrame f = new JFrame();
+      JOptionPane.showMessageDialog(f, "Cannot use token: " + it);
+      return false;
     }
   }
 
@@ -72,7 +83,6 @@ public class SortInfix {
         }
       }
     }
-    System.out.println(infixAL.get(0));
     return infixAL.get(0);
   }
 
